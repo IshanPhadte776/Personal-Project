@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.navbar {
+  background: #131313;
+
+  height: 100px;
+  /* Places all text on the same line */
+  display: flex;
+  /* Centers Text on Screen */
+  justify-content: center;
+  /* Centers Text on Screen (Vertically) */
+  align-items: center;
+  /* Increase Font Size*/
+  font-size: 1.2rem;
+  /* Will still stay on the screen, even when scrolling*/
+  position: sticky;
+  /* doesn't do anything in our code, but means 0 pixels between top and our class objects*/
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  /* Makes a space between elements  */
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  /* Which is 100% of the screen  */
+  /* if width > max-width use max-width
+    if max-width > width use width */
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  /* padding between 2 elements of same class */
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+#navbar__logo {
+  background-color: #ff8177;
+  /* Creates a box around the logo, moving from red to pink  */
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  /* 100% = 100,100  */
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  /* Creates a Pointer when hovering the element */
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.fa-gem {
+  margin-right: 0.5rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.navbar__item {
+  /* Height between navbar__items elements*/
+  height: 30px;
+}
+
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 80%;
+}
+
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #f77062;
+  color: #fff;
+}
+
+.navbar__links:hover {
+  /* Improving this */
+  background: #ffd700;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+
+@media screen and (max-width: 960px) {
+  .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    /* -1 means will be placed on the bottom of the stack */
+    z-index: 1;
+    width: 100%;
+    max-width: 1500px;
+    padding: 0;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    /* Animationing coming from the top  */
+    /* so it can't be seen*/
+    transition: all 0.5s ease;
+    height: 12vh;
+    z-index: -1;
+    background: #131313;
+  }
+
+  .navbar__menu.active {
+    /* When navbar is active */
+    background-color: #131313;
+    top: 100%;
+    /* Allows Sight*/
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 2;
+    /* Distance between elements vertically */
+    height: 80vh;
+    font-size: 1.6rem;
+  }
+
+  .navbar__toggle .bar {
+    /* For the 3 links in the corner when using a small window*/
+    width: 25px;
+    height: 4px;
+    /* Vertical Distance between bars*/
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* second child / 2nd bar */
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* rotates bars whne clicking 3 bar menu */
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(180deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-180deg);
+  }
+}
+
+/* Hero Section */
+.heroSection {
+  background-color: #141414;
+}
+
+.heroSection__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
+  height: 90vh;
+  background-color: #141414;
+  z-index: 1;
+  width: 100%;
+  padding: 0 50px;
+}
+
+.heroSection__content h1 {
+  font-size: 4rem;
+  background-color: #ff8177;
+  background-image: linear-gradient(to bottom right, #ff0000 0%, #ffd700 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.heroSection__content p {
+  font-size: 1.2rem;
+  background-color: #ff8177;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.aboutMeSection {
+  background-color: #141414;
+}
+
+.aboutMeSection__container {
+  display:grid;
+  /* size of each column*/
+  grid-template-columns: 200 150;
+  align-items: center;
+  justify-self: center;
+  /* Size of the container */
+  height: 150vh;
+  width: 350vh;
+  background-color: #141414;
+  z-index: 1;
+  /* outer portion padding */
+  padding: 50px;
+}
+
+.aboutMeSection__content h1 {
+  font-size: 8vw;
+  background-color: #ff8177;
+  background-image: linear-gradient(to bottom right, #ff0000 0%, #ffd700 100%);
+  background-size: 100%;
+  /* Makes Background Black, not Red/ Yellow */
+  -webkit-background-clip: text;
+  /* Keeps Text Red/Yellow */
+  -webkit-text-fill-color: transparent;
+
+  /* All uppercase lettes     text-transform: uppercase; */
+}
+
+.aboutMeSection__content p {
+  font-size: 1.2rem;
+  background-color: #ff8177;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+
+.aboutMeSection__content img {
+  z-index: 1;
+}
